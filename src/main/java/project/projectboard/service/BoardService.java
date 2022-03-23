@@ -23,7 +23,7 @@ public class BoardService {
 
     public Page<Board> getBoard(Pageable pageable) {
         int page = (pageable.getPageNumber() == 0) ? 0 : (pageable.getPageNumber() - 1);
-        pageable = PageRequest.of(page, 10); // default size 값이 10인데, 굳이 필요한 코드일까?
+        pageable = PageRequest.of(page, 10);
 
         return boardRepository.findAll(pageable);
     }
