@@ -1,12 +1,13 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"><body>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
 <div class="container">
     <form action="/boards/delete" method="post">
         <div class="form-group">
             <table>
                 <tr>
-                    <td><label for="id">#</label></td>
-                    <td><input type="text" id="id" name="id" placeholder="삭제하고자 하는 게시판의 번호를 입력하세요"></td>
+                    <td><label for="id">글 번호</label></td>
+                    <td><input type="number" id="id" name="id" placeholder="삭제할 게시글의 번호를 입력하세요"></td>
                 </tr>
             </table>
         </div>

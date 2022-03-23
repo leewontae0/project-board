@@ -1,40 +1,29 @@
 package project.projectboard.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
+@Getter @Setter
 public class Board {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue
+    @Column(name = "board_id")
     private Long id;
 
     @Column
     private String title;
 
-    @Column
+    @Lob
     private String content;
 
-    public Long getId() {
-        return id;
-    }
+    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = LAZY)
+    private User writer;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 }
